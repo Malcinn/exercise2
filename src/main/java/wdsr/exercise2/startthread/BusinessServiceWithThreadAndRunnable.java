@@ -15,7 +15,14 @@ public class BusinessServiceWithThreadAndRunnable {
 	 */
 	public void computeFibonacci(int n, FibonacciCallback callback) {
 		// TODO Task: execute the logic below in a new Thread, use Runnable interface.
-		long value = helper.findFibonacciValue(n);
-		callback.fibonacciComputed(value);
+		Runnable runnable =  new Runnable() {
+			@Override
+			public void run() {
+				long value = helper.findFibonacciValue(n);
+				callback.fibonacciComputed(value);
+			}
+		};
+		Thread newThread = new Thread(runnable);
+		newThread.start();
 	}
 }
