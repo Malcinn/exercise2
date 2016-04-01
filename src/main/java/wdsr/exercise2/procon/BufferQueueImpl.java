@@ -8,7 +8,7 @@ import java.util.concurrent.BlockingQueue;
  */
 public class BufferQueueImpl implements Buffer {
 	
-	private final int ORDER_QUEUE_CAPACITY = 100;
+	private static final int ORDER_QUEUE_CAPACITY = 100;
 	
 	private BlockingQueue<Order> orderQueue = new ArrayBlockingQueue<>(ORDER_QUEUE_CAPACITY);
 	
